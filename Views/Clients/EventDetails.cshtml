@@ -1,0 +1,101 @@
+﻿@model InsuranceApp_Accounts.Models.Client
+
+@{
+	ViewData["Title"] = "Detail pojistné události";
+}
+
+<div class="shadow bg-light p-4 rounded table-responsive-md">
+
+	@if (User.IsInRole("admin"))
+	{
+
+		<div class="text-center pb-3"><h3>Detail pojistné události</h3></div>
+
+		<div class="my-3 text-center">
+			<a class="btn mx-2 my-2 mx-sm-2 btn-log btn-outline-info" asp-controller="Clients" asp-action="Details" asp-route-id="@Model.Id"><i class="bi bi-info-circle-fill"></i> Podrobnosti klienta</a>
+			<a class="btn mx-2 btn-log btn-outline-info" asp-controller="Clients" asp-action="InsuranceDetails" asp-route-id="@Model.Id"><i class="bi bi-info-circle-fill"></i> Podrobnosti pojištění</a>
+		</div>
+
+		<table class="justify-content-center table table-responsive-xs">
+			<thead class="pt-25">
+				<tr>
+					<th>Č. pojistné události</th>
+					<th>Předmět poj. události</th>
+					<th>Místo</th>
+					<th>Datum poj. události</th>
+					<th>Popis poj. události</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>325 @Html.DisplayFor(model => model.Id)</td>
+
+					<td>@Html.DisplayFor(model => model.EventSubject)</td>
+
+					<td>@Html.DisplayFor(model => model.Place)</td>
+
+					<td>@Html.DisplayFor(model => model.EventDate)</td>
+
+					<td>@Html.DisplayFor(model => model.Event)</td>
+				</tr>
+		</table>
+
+		<hr class="my-4" m-4 />
+
+		<div>
+			<h3 class="text-center">Možnosti</h3>
+		</div>
+
+		<div class="my-3 text-center">
+			<a class="btn mx-2 my-2 mx-sm-2 btn-log btn-outline-warning" asp-controller="Clients" asp-action="EditEvent" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i> Upravit Událost</a>
+			<a class="btn mx-2 btn-log btn-outline-danger" asp-controller="Clients" asp-action="DeleteEvent" asp-route-id="@Model.Id"><i class="bi bi-trash-fill"></i> Odstranit Událost</a>
+		</div>
+	}
+
+	else
+	{
+		<div class="text-center pb-3"><h3>Detail pojistné události</h3></div>
+
+		<div class="my-3 text-center">
+			<a class="btn mx-2 my-2 mx-sm-2 btn-log btn-outline-info" asp-controller="Clients" asp-action="Details" asp-route-id="@Model.Id"><i class="bi bi-info-circle-fill"></i> Podrobnosti klienta</a>
+			<a class="btn mx-2 btn-log btn-outline-info" asp-controller="Clients" asp-action="InsuranceDetails" asp-route-id="@Model.Id"><i class="bi bi-info-circle-fill"></i> Podrobnosti pojištění</a>
+		</div>
+
+		<table class="justify-content-center table table-responsive-xs">
+			<thead class="pt-25">
+				<tr>
+					<th>Č. pojistné události</th>
+					<th>Předmět poj. události</th>
+					<th>Místo</th>
+					<th>Datum poj. události</th>
+					<th>Popis poj. události</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>325 @Html.DisplayFor(model => model.Id)</td>
+
+					<td>@Html.DisplayFor(model => model.EventSubject)</td>
+
+					<td>@Html.DisplayFor(model => model.Place)</td>
+
+					<td>@Html.DisplayFor(model => model.EventDate)</td>
+
+					<td>@Html.DisplayFor(model => model.Event)</td>
+				</tr>
+		</table>
+
+		<hr class="my-4" m-4 />
+
+		<div>
+			<h3 class="text-center">Možnosti</h3>
+		</div>
+
+
+		<div class="text-center">
+			<a class="btn mt-5 mx-2 btn-log btn-outline-warning" asp-controller="Clients" asp-action="EditEvent" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i>Upravit Událost</a>
+		</div>
+	}
+	</tbody>
+	</table>
+</div>

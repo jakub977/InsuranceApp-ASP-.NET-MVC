@@ -1,0 +1,146 @@
+/* Show it is fixed to the top */
+main {
+    min-height: 20rem;
+}
+
+h1, h2, h3, h4 {
+    color: #070a14;
+}
+
+#hidden {
+    display: none;
+}
+
+img {
+    float: left;
+    margin-right: 15px;
+    border-style: groove;
+    margin-left: 100px;
+    margin-right: 60px;
+}
+
+
+#tlacitko-pridat {
+    justify-content: end;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#moznosti {
+    width: 95px;
+}
+
+table {
+    margin-top: 25px;
+    background-color: ghostwhite;
+    border-radius: 5px;
+}
+
+thead * {
+    border-radius: 3px;
+}
+
+form {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.navbar {
+    background-color: #05103c;
+}
+
+.form-signin {
+    max-width: 500px;
+}
+
+#prihlaseni * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.row * {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.form-select {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+label {
+    margin-left: 3px;
+}
+
+#accordion {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#table-main {
+    text-align: center;
+    box-shadow: 2px 2px 10px grey;
+}
+
+#table-second {
+    text-align: center;
+
+    box-shadow: 2px 2px 10px grey;
+}
+
+#table-third {
+    text-align: center;
+    box-shadow: 2px 2px 10px grey;
+}
+
+a {
+    text-decoration: none;
+    color: #0a00f2df;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    clip-path: polygon(0 30px, 150% 0, 100% 100%, 0 100%);
+    background-color: #040e39;
+}
+
+body {
+    padding-top: 70px;
+}
+
+#disabled {
+    background-color: #e1dede !important;
+    color: #818080;
+}
+
+#select {
+    margin-inline-start: 1px;
+}
+
+#admin {
+    color: #dddce4df;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+#background_main {
+    min-height: 450px;
+}
+
+#intro {
+    background-image: url("../images/city.jpg");
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #878181;
+}
+
+.popover {
+    background-color: lemonchiffon;
+}
+
+

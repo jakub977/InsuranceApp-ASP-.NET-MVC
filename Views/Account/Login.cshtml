@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model LoginViewModel
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+
+	ViewData["Title"] = "Přihlášení";
+}
+
+<section>
+	<div id="sign-in" class="p-2 row justify-content-center align-items-center rounded">
+		<div>@ViewBag.Result</div>
+		<form id="prihlaseni" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+			<h1 class="h2 pb-2 fw-normal">Přihlášení</h1>
+
+			<div class="form-floating">
+				<input asp-for="Email" type="email" class="form-control" id="floatingInput" placeholder="jan.novak@gmail.com">
+				<label asp-for="Email" for="floatingInput">Email:</label>
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+			<div class="form-floating">
+				<input asp-for="Password" type="password" class="form-control" id="floatingPassword" placeholder="heslo">
+				<label asp-for="Password" for="floatingPassword">Heslo</label>
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<div class="checkbox mb-1">
+					<label style="color:white" asp-for="RememberMe">
+						<input asp-for="RememberMe" />
+						@Html.DisplayNameFor(m => m.RememberMe)
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="w-80 btn btn-lg btn-primary" type="submit">Přihlásit se</button>
+			</div>
+			<div class="form-group">
+				<h6 style="color:white">
+					Nemáte registraci? <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Zaregistrovat se</a>
+				</h6>
+			</div>
+		</form>
+
+	</div>
+</section>
+
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

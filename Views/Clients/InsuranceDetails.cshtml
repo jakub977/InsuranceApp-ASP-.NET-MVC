@@ -1,0 +1,242 @@
+﻿@model InsuranceApp_Accounts.Models.Client
+
+@{
+	ViewData["Title"] = "Detail pojištění";
+}
+
+<div class="shadow bg-light p-4 rounded table-responsive-md">
+
+	@if (User.IsInRole("admin"))
+	{
+
+		<div class="text-center pb-3"><h3>Detail pojištění</h3></div>
+
+		<div class="my-1 text-center">
+			<a class="btn mx-2 btn-log btn-outline-info" asp-controller="Clients" asp-action="Details" asp-route-id="@Model.Id"><i class="bi bi-info-circle-fill"></i> Podrobnosti klienta</a>
+		</div>
+
+		<table class=" justify-content-center table table-responsive-xs">
+			<thead class="pt-15">
+				<tr>
+					<th>Č. poj. smlouvy</th>
+					<th>Pojištění</th>
+					<th>Předmět pojištění</th>
+					<th>Limit plnění v Kč</th>
+					<th>Sjednáno od</th>
+					<th>Sjednáno do</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>973 551 @Html.DisplayFor(model => model.Id)</td>
+
+					<td>@Html.DisplayFor(model => model.Insurance)</td>
+
+					<td>@Html.DisplayFor(model => model.Subject)</td>
+
+					<td>@Html.DisplayFor(model => model.Limit)</td>
+
+					<td>@Html.DisplayFor(model => model.StartDate)</td>
+
+					<td>@Html.DisplayFor(model => model.EndDate)</td>
+				</tr>
+		</table>
+
+		<hr class="my-4" m-4 />
+		<h3>Pojistné události</h3>
+
+		@if (Model.EventSubject == null)
+		{
+			<table id="table-second" class="table mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. pojistné události</th>
+						<th>Předmět poj. události</th>
+						<th>Místo</th>
+						<th>Datum poj. události</th>
+						<th>Možnosti poj. události</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+
+						<td><a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-primary" asp-controller="Clients" asp-action="AddEvent" asp-route-id="@Model.Id"><i class="bi bi-plus-circle"></i> Přidat</a></td>
+					</tr>
+				</tbody>
+			</table>
+		}
+		else
+		{
+			<table id="table-second" class="table table-hover mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. pojistné události</th>
+						<th>Předmět poj. události</th>
+						<th>Místo</th>
+						<th>Datum poj. události</th>
+						<th>Možnosti poj. události</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Pro zobrazení detailu pojistné události, klikněte na řádek." onclick="location.href='@Url.ActionLink("EventDetails", "Clients", new { Id = Model.Id })'">
+						<td>
+							325 @Html.DisplayFor(model => model.Id)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.EventSubject)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.Place)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.EventDate)
+						</td>
+
+						<td>
+							<a id="moznosti" class="btn mx-1 my-2 mx-sm-2 btn-sm btn-log btn-outline-warning" asp-controller="Clients" asp-action="EditEvent" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i> Upravit</a>
+							<a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-danger" asp-controller="Clients" asp-action="DeleteEvent" asp-route-id="@Model.Id"><i class="bi bi-trash-fill"></i> Odstranit</a>
+						</td>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+
+									<!-- Modal Header -->
+									<div class="modal-header text-center">
+										<h4 class="modal-title">Odstranění pojistné události</h4>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+									</div>
+
+									<!-- Modal body -->
+									<div class="modal-body text-center">
+										Chystáte se odstranit aktuální pojistnou událost. <br />
+										Jste si jisti, že chcete pokračovat?
+									</div>
+
+									<!-- Modal footer -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ne</button>
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Ano</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</tr>
+				</tbody>
+			</table>
+		}
+
+		<div class="text-center">
+			<a class="btn mx-2 my-2 mx-sm-2 btn-log btn-outline-warning" asp-controller="Clients" asp-action="EditInsurance" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i> Upravit Pojištění</a>
+			<a class="btn mx-2 btn-log btn-outline-danger" asp-controller="Clients" asp-action="DeleteInsurance" asp-route-id="@Model.Id"><i class="bi bi-trash-fill"></i> Odstranit Pojištění</a>
+		</div>
+	}
+
+	else
+	{
+		<div class="text-center pb-3"><h3>Detail pojištění</h3></div>
+
+		<table class=" justify-content-center table table-responsive-xs">
+			<thead class="pt-15">
+				<tr>
+					<th>Č. poj. smlouvy</th>
+					<th>Pojištění</th>
+					<th>Předmět pojištění</th>
+					<th>Limit plnění v Kč</th>
+					<th>Sjednáno od</th>
+					<th>Sjednáno do</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>973 551 @Html.DisplayFor(model => model.Id)</td>
+
+					<td>@Html.DisplayFor(model => model.Insurance)</td>
+
+					<td>@Html.DisplayFor(model => model.Subject)</td>
+
+					<td>@Html.DisplayFor(model => model.Limit)</td>
+
+					<td>@Html.DisplayFor(model => model.StartDate)</td>
+
+					<td>@Html.DisplayFor(model => model.EndDate)</td>
+				</tr>
+		</table>
+
+		<hr class="my-4" m-4 />
+		<h3>Pojistné události</h3>
+
+		@if (Model.EventSubject == null)
+		{
+			<table id="table-second" class="table mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. pojistné události</th>
+						<th>Předmět poj. události</th>
+						<th>Místo</th>
+						<th>Datum poj. události</th>
+						<th>Možnosti poj. události</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+
+						<td><a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-primary" asp-controller="Clients" asp-action="AddEvent" asp-route-id="@Model.Id"><i class="bi bi-plus-circle"></i> Přidat</a></td>
+					</tr>
+				</tbody>
+			</table>
+		}
+		else
+		{
+			<table id="table-second" class="table table-hover mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. pojistné události</th>
+						<th>Předmět poj. události</th>
+						<th>Místo</th>
+						<th>Datum poj. události</th>
+						<th>Možnosti poj. události</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Pro zobrazení detailu pojistné události, klikněte na řádek." onclick="location.href='@Url.ActionLink("EventDetails", "Clients", new { Id = Model.Id })'">
+						<td>
+							325 @Html.DisplayFor(model => model.Id)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.EventSubject)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.Place)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.EventDate)
+						</td>
+
+						<td>
+							<a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-warning" asp-controller="Clients" asp-action="EditEvent" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i> Upravit</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		}
+	}
+</div>

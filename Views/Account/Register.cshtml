@@ -1,0 +1,99 @@
+﻿@model RegisterViewModel
+
+
+@{
+	ViewData["Title"] = "Registration";
+}
+
+
+<section>
+	<div class="p-2 row justify-content-center align-items-center rounded">
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-12 col-lg-9 col-xl-7">
+					<div class="" style="border-radius: 15px;">
+						<div class="card-body p- p-md-2">
+							<h3 class="text-center pb-md-0 mb-md-2">Registrační formulář</h3>
+
+							<form class="d-flex flex-column" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+								<div class="row">
+
+									<div class="col-md-6 mb-4">
+
+										<div class="form-floating">
+											<input id="floatingInput" type="text" asp-for="UserFirstName" class="form-control" id="floatingInput" placeholder="Jméno:" />
+											<label class="form-label" asp-for="UserFirstName">Jméno:</label>
+											<span asp-validation-for="UserFirstName" class="text-danger"></span>
+										</div>
+
+									</div>
+									<div class="col-md-6 mb-4">
+
+										<div class="form-floating">
+											<input id="floatingInput" type="text" asp-for="UserLastName" class="form-control" id="floatingInput" placeholder="Příjmení:" />
+											<label class="form-label" asp-for="UserLastName">Příjmení:</label>
+											<span asp-validation-for="UserLastName" class="text-danger"></span>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="row">
+
+									<div class="col-md-6 mb-4">
+
+										<div class="form-floating">
+											<input id="floatingInput" type="email" asp-for="Email" class="form-control" id="floatingInput" placeholder="Email:" />
+											<label class="form-label" asp-for="Email">Email:</label>
+											<span asp-validation-for="Email" class="text-danger"></span>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+
+									<div class="col-md-6 mb-4">
+
+										<div class="form-floating">
+											<input asp-for="Password" type="password" class="form-control" id="floatingPassword" placeholder="heslo">
+											<label asp-for="Password" for="floatingPassword">Heslo</label>
+											<span asp-validation-for="Password" class="text-danger"></span>
+										</div>
+
+									</div>
+
+									<div class="col-md-6 mb-4">
+
+										<div class="form-floating">
+											<input asp-for="ConfirmPassword" type="password" class="form-control" id="floatingPassword" placeholder="Potvrzení hesla">
+											<label asp-for="ConfirmPassword" for="floatingPassword">Heslo</label>
+											<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="text-center mt-2 pt-1">
+									<button type="submit" class="btn btn-primary btn-lg">Registrovat</button>
+								</div>
+
+								<div class="text-center form-group pt-1">
+									<h6 style="color:white">
+										Jste již zaregistrováni? <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">Přihlaste se</a>
+									</h6>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+	}

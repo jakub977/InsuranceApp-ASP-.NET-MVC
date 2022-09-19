@@ -1,0 +1,50 @@
+﻿@model IEnumerable<InsuranceApp_Accounts.Models.Client>
+
+@{
+	ViewData["Title"] = "Seznam pojištění";
+
+	Pager pager = new Pager();
+	int pageNo = 0;
+	if (ViewBag.Pager != null)
+	{
+		pager = ViewBag.Pager;
+		pageNo = pager.CurrentPage;
+	}
+}
+
+<div id="background_main" class="shadow my-0 p-3 rounded table-responsive-md">
+
+
+
+	<div><h3>Seznam pojištění</h3></div>
+
+	<table id="table-main" class="table">
+		<thead class=" table-dark">
+			<tr>
+				<th>Č. pojistné smlouvy</th>
+				<th>Pojištění</th>
+				<th>Limit plnění</th>
+				<th>Možnosti</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var client in Model)
+			{
+				@if (client.Insurance != null) // If must be inside the model
+				{
+					<tr>
+						<td>973 551 @client.Id</td>
+						<td>@client.Insurance</td>
+						<td>@client.Limit</td>
+						<td>
+							<a class="btn mx-2 btn-sm btn-log btn-outline-info" asp-controller="Clients" asp-action="InsuranceDetails" asp-route-id="@client.Id"><i class="bi bi-info-circle-fill"></i> Zobrazit podrobnosti</a>
+						</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+</div
+
+<partial name="_PagerInsurance" model="@pager" /> @*Adding Pagination*@
+			

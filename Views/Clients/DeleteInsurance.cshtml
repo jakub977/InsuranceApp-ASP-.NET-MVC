@@ -1,0 +1,89 @@
+﻿@model InsuranceApp_Accounts.Models.Client
+
+@{
+	ViewData["Title"] = "Odstranění pojištění";
+}
+
+<div class="shadow p-3 rounded table-responsive-md text-nowrap">
+	<div class="pb-1"><h3>Odstranění pojištění</h3></div>
+
+	<form method="post" asp-action="DeleteInsurance">
+		<input type="hidden" asp-for="Id" />
+		<div class="row row-cols-2">
+
+			<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="Insurance" class="control-label"><h5 style="color:white">Pojištění</h5></label>
+				<input disabled asp-for="Insurance" type="text" class="form-control" placeholder="Povinné ručení">
+				<span asp-validation-for="Insurance" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="Subject" class="control-label"><h5>Předmět pojištění</h5></label>
+				<input disabled asp-for="Subject" type="text" class="form-control" placeholder="Auto">
+				<span asp-validation-for="Subject" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="Limit" class="control-label"><h5 style="color:white">Limit plnění v Kč</h5></label>
+				<input disabled asp-for="Limit" type="text" class="form-control" placeholder="1.000.000">
+				<span asp-validation-for="Limit" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="StartDate" class="control-label"><h5>Počátek pojištění</h5></label>
+				<input disabled asp-for="StartDate" type="text" class="form-control" placeholder="1.1.2023">
+				<span asp-validation-for="StartDate" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="EndDate" class="control-label"><h5 style="color:white">Konec pojištění:</h5></label>
+				<input disabled asp-for="EndDate" type="text" class="form-control" placeholder="1.1.2023">
+				<span asp-validation-for="EndDate" class="text-danger"></span>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<hr mx-5 />
+			</div>
+
+		</div>
+
+		<div class="form-group text-center">
+			<button type="button" class="btn mx-3 mt-3 btn-danger" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-trash-fill"></i> Odstranit</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header text-center">
+							<h4 class="modal-title">Odstranění pojištění</h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+
+						<!-- Modal body -->
+						<div class="modal-body text-center">
+							Chystáte se odstranit aktuální pojištění. <br />
+							Jste si jisti, že chcete pokračovat?
+						</div>
+
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="submit" value="Delete" class="btn btn-danger" data-bs-dismiss="modal">Ano</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ne</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<a asp-controller="Clients" asp-action="Details" asp-route-id="@Model.Id" class="btn mx-2 mt-3 btn-secondary"><i class="bi bi-arrow-left-circle-fill"></i> Zpět</a>
+		</div>
+
+	</form>
+
+</div>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+	}

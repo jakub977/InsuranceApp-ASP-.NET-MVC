@@ -1,0 +1,54 @@
+﻿@model IEnumerable<InsuranceApp_Accounts.Models.Client>
+
+@{
+	ViewData["Title"] = "Hlavní stránka";
+
+	Pager pager = new Pager();
+	int pageNo = 0;
+	if (ViewBag.Pager != null)
+	{
+		pager = ViewBag.Pager;
+		pageNo = pager.CurrentPage;
+	}
+}
+
+<div id="background_main" class="shadow my-0 p-3 rounded table-responsive">
+
+	<div class="text-center"><a class="shadow btnfixed btn mb-3 btn-lg btn-primary" asp-controller="Clients" asp-action="Create"><i class="bi bi-plus-circle"></i> &nbsp; Přidat pojištěnce</a></div>
+
+	<div><h3>Seznam pojištěnců</h3></div>
+
+	<table id="table-main" class="table table-hover">
+		<thead class=" table-dark">
+			<tr>
+				<th>Jméno</th>
+				<th>Bydliště</th>
+				<th>Email</th>
+				@if (User.IsInRole("admin"))
+				{
+					<th>Možnosti</th>
+				}
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var client in Model)
+			{
+				<tr data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Pro zobrazení detailu pojištěnce, klikněte na řádek." onclick="location.href='@Url.ActionLink("Details", "Clients", new { Id = client.Id })'">
+					<td>@client.FirstName @client.LastName</td>
+					<td>@client.Address</td>
+					<td>@client.Email</td>
+					@if (User.IsInRole("admin"))
+					{
+						<td>
+							<a id="moznosti" class="btn my-2 btn-sm mx-sm-2 btn-log btn-outline-warning" asp-controller="Clients" asp-action="Edit" asp-route-id="@client.Id"><i class="bi bi-pencil-square"></i> Upravit</a>
+							<a id="moznosti" class="btn mx-2 btn-sm btn-log btn-outline-danger" asp-controller="Clients" asp-action="Delete" asp-route-id="@client.Id"><i class="bi bi-trash-fill"></i> Odstranit</a>
+						</td>
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+<partial name="_Pager" model="@pager" /> @*Adding Pagination*@

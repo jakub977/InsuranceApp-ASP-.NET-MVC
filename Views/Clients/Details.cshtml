@@ -1,0 +1,220 @@
+﻿@model InsuranceApp_Accounts.Models.Client
+
+
+@{
+	ViewData["Title"] = "Detail Pojištěnce";
+}
+
+<div class="shadow bg-light pt-2 p-4 rounded table-responsive-md">
+	@if (User.IsInRole("admin"))
+	{
+		<div class="text-center my-0 py-0"><h3>Detail pojištěnce</h3></div>
+		<div class="clearfix">
+			<img src="~/images/user.png" alt="klient" width="200" height="200">
+
+			<br />
+
+			<table class="justify-content-center w-50 my-0 py-0 table">
+				<thead class="pt-25">
+					<tr>
+						<th>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>@Html.DisplayFor(model => model.Address)</td>
+						<td>@Html.DisplayFor(model => model.Email)</td>
+					</tr>
+					<tr>
+						<td>@Html.DisplayFor(model => model.Phone)</td>
+						<td></td>
+					</tr>
+			</table>
+
+		</div>
+		<hr m-4 />
+		<h3>Sjednaná pojištění</h3>
+
+		@if (Model.Insurance == null)
+		{
+			<table id="table-second" class="table mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. poj. smlouvy</th>
+						<th>Pojištění</th>
+						<th>Limit plnění v Kč</th>
+						<th>Sjednáno do</th>
+						<th>Možnosti pojištění</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-primary" asp-controller="Clients" asp-action="AddInsurance" asp-route-id="@Model.Id"><i class="bi bi-plus-circle"></i> Přidat</a></td>
+					</tr>
+				</tbody>
+			</table>
+		}
+		else
+		{
+			<table id="table-second" class="table table-hover mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. poj. smlouvy</th>
+						<th>Pojištění</th>
+						<th>Limit plnění v Kč</th>
+						<th>Sjednáno do</th>
+						<th>Možnosti pojištění</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Pro zobrazení detailu pojištění, klikněte na řádek." onclick="location.href='@Url.ActionLink("InsuranceDetails", "Clients", new { Id = Model.Id })'">
+						<td>
+							973 551 @Html.DisplayFor(model => model.Id)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.Insurance)
+						</td>
+						<td>
+							@Html.DisplayFor(model => model.Limit)
+						</td>
+						<td>
+							@Html.DisplayFor(model => model.EndDate)
+						</td>
+						<td>
+							<a id="moznosti" class="btn mx-1 my-2 mx-sm-2 btn-sm btn-log btn-outline-warning" asp-controller="Clients" asp-action="EditInsurance" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i> Upravit</a>
+							<a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-danger" asp-controller="Clients" asp-action="DeleteInsurance" asp-route-id="@Model.Id"><i class="bi bi-trash-fill"></i> Odstranit</a>
+						</td>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+
+									<!-- Modal Header -->
+									<div class="modal-header text-center">
+										<h4 class="modal-title">Odstranění pojištění</h4>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+									</div>
+
+									<!-- Modal body -->
+									<div class="modal-body text-center">
+										Chystáte se odstranit aktuální pojištění. <br />
+										Jste si jisti, že chcete pokračovat?
+									</div>
+
+									<!-- Modal footer -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ne</button>
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Ano</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</tr>
+				</tbody>
+			</table>
+		}
+
+		<div class="text-center">
+			<a class="btn my-2 mx-sm-2 btn-log btn-outline-warning" asp-controller="Clients" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i> Upravit Pojištěnce</a>
+			<a class="btn mx-2 btn-log btn-outline-danger" asp-controller="Clients" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash-fill"></i> Odstranit Pojištěnce</a>
+		</div>
+	}
+
+	else
+	{
+		<div class="clearfix">
+			<img src="~/images/user.png" alt="klient" width="200" height="200">
+
+			<table class="w-50 table table-responsive-xs">
+				<thead class="pt-25">
+					<tr>
+						<th>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>@Html.DisplayFor(model => model.Address)</td>
+						<td>@Html.DisplayFor(model => model.Email)</td>
+					</tr>
+					<tr>
+						<td>@Html.DisplayFor(model => model.Phone)</td>
+						<td></td>
+					</tr>
+			</table>
+
+		</div>
+		<hr m-4 />
+		<h3>Sjednaná pojištění</h3>
+
+		@if (Model.Insurance == null)
+		{
+			<table id="table-second" class="table mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. poj. smlouvy</th>
+						<th>Pojištění</th>
+						<th>Limit plnění v Kč</th>
+						<th>Sjednáno do</th>
+						<th>Možnosti pojištění</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a id="moznosti" class="btn mx-1 btn-sm btn-log btn-outline-primary" asp-controller="Clients" asp-action="AddInsurance" asp-route-id="@Model.Id"><i class="bi bi-plus-circle"></i> Přidat</a></td>
+					</tr>
+				</tbody>
+			</table>
+		}
+		else
+		{
+			<table id="table-second" class="table table-hover mb-3 table-responsive-xs">
+				<thead class="table-dark">
+					<tr>
+						<th>Č. poj. smlouvy</th>
+						<th>Pojištění</th>
+						<th>Limit plnění v Kč</th>
+						<th>Sjednáno do</th>
+						<th>Možnosti pojištění</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Pro zobrazení detailu pojištění, klikněte na řádek." onclick="location.href='@Url.ActionLink("InsuranceDetails", "Clients", new { Id = Model.Id })'">
+						<td>
+							973 551 @Html.DisplayFor(model => model.Id)
+						</td>
+
+						<td>
+							@Html.DisplayFor(model => model.Insurance)
+						</td>
+						<td>
+							@Html.DisplayFor(model => model.Limit)
+						</td>
+						<td>
+							@Html.DisplayFor(model => model.EndDate)
+						</td>
+						<td>
+							<h6>Pro více možností musíte být Admin</h6>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		}
+
+	}
+</div>

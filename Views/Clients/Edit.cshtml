@@ -1,0 +1,148 @@
+﻿@model InsuranceApp_Accounts.Models.Client
+
+@{
+	ViewData["Title"] = "Upravení pojištěnce";
+}
+
+<div class="shadow p-3 rounded table-responsive-md text-nowrap">
+	<div class="pb-1"><h3>Upravení pojištěnce</h3></div>
+
+	<form method="post" asp-action="Edit">
+		<input type="hidden" asp-for="Id" />
+		<div class="row row-cols-2">
+			@if (Model.Insurance == null)
+			{
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="FirstName"><h5 style="color:white">Jméno</h5></label>
+					<input asp-for="FirstName" type="text" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="LastName"><h5>Příjmení</h5></label>
+					<input asp-for="LastName" type="text" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="Email"><h5 style="color:white">Email</h5></label>
+					<input asp-for="Email" type="email" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="Phone"><h5>Telefon</h5></label>
+					<input asp-for="Phone" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="Address"><h5 style="color:white">Celá adresa</h5></label>
+					<input asp-for="Address" type="text" class="form-control">
+				</div>
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<hr mx-5 />
+				</div>
+			}
+			else
+			{
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="FirstName"><h5 style="color:white">Jméno</h5></label>
+					<input asp-for="FirstName" type="text" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="LastName"><h5>Příjmení</h5></label>
+					<input asp-for="LastName" type="text" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="Email"><h5 style="color:white">Email</h5></label>
+					<input asp-for="Email" type="email" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="Phone"><h5>Telefon</h5></label>
+					<input asp-for="Phone" class="form-control">
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<label asp-for="Address"><h5 style="color:white">Celá adresa</h5></label>
+					<input asp-for="Address" type="text" class="form-control">
+				</div>
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<hr mx-5 />
+				</div>
+
+				<div id="hidden"> <!--Hides unused forms but still submits their data-->
+					<h4>Informace o pojištění</h4>
+
+					<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<label asp-for="Insurance" class="control-label"><h6></h6></label>
+						<input id="disabled" asp-for="Insurance" type="text" class="form-control">
+						<span asp-validation-for="Insurance" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<label asp-for="Subject" class="control-label"><h6></h6></label>
+						<input id="disabled" asp-for="Subject" type="text" class="form-control">
+						<span asp-validation-for="Subject" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<label asp-for="Limit" class="control-label"><h6></h6></label>
+						<input id="disabled" asp-for="Limit" type="text" class="form-control">
+						<span asp-validation-for="Limit" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<label asp-for="StartDate" class="control-label"><h6></h6></label>
+						<input id="disabled" asp-for="StartDate" type="text" class="form-control">
+						<span asp-validation-for="StartDate" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<label asp-for="EndDate" class="control-label"><h6></h6></label>
+						<input id="disabled" asp-for="EndDate" type="text" class="form-control">
+						<span asp-validation-for="EndDate" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label asp-for="EventSubject" class="control-label"><h6>Předmět pojistné události</h6></label>
+						<input asp-for="EventSubject" type="text" class="form-control" placeholder="Byt">
+						<span asp-validation-for="EventSubject" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label asp-for="Place" class="control-label"><h6>Místo pojistné události</h6></label>
+						<input asp-for="Place" type="text" class="form-control" placeholder="Praha">
+						<span asp-validation-for="Place" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label asp-for="EventDate" class="control-label"><h6>Datum pojistné události</h6></label>
+						<input asp-for="EventDate" type="text" class="form-control" placeholder="1.9.2022">
+						<span asp-validation-for="EventDate" class="text-danger"></span>
+					</div>
+
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label asp-for="Event" class="control-label"><h6>Popis pojistné události</h6></label>
+						<input asp-for="Event" type="text" class="form-control" placeholder="Popište co se stalo..." rows="4"></input>
+					</div>
+				</div>
+			}
+
+		</div>
+
+		<div class="form-group text-center">
+			<button type="submit" value="Save" asp-route-id="@Model.Id" class="btn mx-2 mt-3 btn-success"><i class="bi bi-check-circle-fill"></i> Uložit změny</button>
+			<a asp-controller="Clients" asp-action="Details" asp-route-id="@Model.Id" class="btn mx-2 mt-3 btn-secondary"><i class="bi bi-arrow-left-circle-fill"></i> Zpět</a>
+		</div>
+
+	</form>
+
+</div>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+	}

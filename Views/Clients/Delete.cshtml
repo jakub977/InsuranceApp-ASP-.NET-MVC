@@ -1,0 +1,87 @@
+﻿@model InsuranceApp_Accounts.Models.Client
+
+@{
+	ViewData["Title"] = "Odstranění pojištěnce";
+}
+
+<div class="shadow p-3 rounded table-responsive-md text-nowrap">
+	<div><h3>Odstranit pojištěnce</h3></div>
+
+	<form method="post" asp-action="Delete">
+		<!-- We can call this Action name  -->
+
+		<input asp-for="Id" type="hidden" />  <!-- hidden Id in order to delete -->
+
+		<div class="row row-cols-2">
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="FirstName"><h5 style="color:white">Jméno</h5></label>
+				<input asp-for="FirstName" disabled type="text" class="form-control">
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="LastName"><h5>Příjmení</h5></label>
+				<input asp-for="LastName" disabled type="text" class="form-control">
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="Email"><h5 style="color:white">Email</h5></label>
+				<input asp-for="Email" disabled type="email" class="form-control">
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="Phone"><h5>Telefon</h5></label>
+				<input asp-for="Phone" disabled class="form-control">
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label asp-for="Address"><h5 style="color:white">Celá adresa</h5></label>
+				<input asp-for="Address" disabled type="text" class="form-control">
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<hr mx-5 />
+			</div>
+
+		</div>
+
+		<div class="text-center">
+			<button type="button" class="btn mx-3 mt-3 btn-danger" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-trash-fill"></i> Odstranit</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header text-center">
+							<h4 class="modal-title">Odstranění pojištěnce</h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+
+						<!-- Modal body -->
+						<div class="modal-body text-center">
+							Chystáte se odstranit aktuálního pojištěnce. <br />
+							Jste si jisti, že chcete pokračovat?
+						</div>
+
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="submit" value="Delete" class="btn btn-danger" data-bs-dismiss="modal">Ano</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ne</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<a asp-controller="Clients" asp-action="Details" asp-route-id="@Model.Id" class="btn mx-3 mt-3 btn-secondary"><i class="bi bi-arrow-left-circle-fill"></i> Zpět</a>
+		</div>
+
+	</form>
+
+</div>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+	}
