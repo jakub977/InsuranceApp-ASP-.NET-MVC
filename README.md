@@ -20,6 +20,6 @@ Visual Studio Community 2022
 ## Installation and setup
 1. Download source code from "Code" section, extract all the files and open the application in Visual Studio Community. 
 2. For database set up, open "Package manager console" under "Tools" => "NuGet package manager".
-3. Insert "Add-Migration" command to create migration of the database and then insert "Update-Database" to create corresponding 
+3. Insert "Add-Migration" command in the console to create migration of the database and then insert "Update-Database" to create corresponding 
 database for the project.
 4. Run the application.
