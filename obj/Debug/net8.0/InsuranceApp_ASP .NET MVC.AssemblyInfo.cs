@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InsuranceApp_ASP .NET MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58d8af44164953e072a5747e5487f96ab3982c96")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29fbad58a0cbf2e913ccd6cee05f4834066310f0")]
 [assembly: System.Reflection.AssemblyProductAttribute("InsuranceApp_ASP .NET MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InsuranceApp_ASP .NET MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
