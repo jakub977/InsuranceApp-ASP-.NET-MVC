@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\InsuranceApp_ASP .NET MVC.props" />
-</Project>
