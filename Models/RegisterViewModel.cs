@@ -24,6 +24,8 @@ namespace InsuranceApp_Accounts.Models
 
         [Required(ErrorMessage = "* Zadejte heslo")]
         [StringLength(100, ErrorMessage = "* {0} musí mít délku alespoň {2} a nejvíc {1} znaků", MinimumLength = 6)]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*[!@#$%^&*().^*]).*$",
+    ErrorMessage = "* Heslo musí obsahovat alespoň jedno velké písmeno a alespoň jeden speciální znak.")]
         [DataType(DataType.Password)]
         [Display(Name = "Heslo")]
         public string Password { get; set; } = "";
