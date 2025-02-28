@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|c:\\users\\jsanda\\projects\\test projects\\insuranceapp-asp-.net-mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|c:\\users\\jsanda\\projects\\test projects\\insuranceapp-asp-.net-mvc\\views\\clients\\addinsurance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|solutionrelative:views\\clients\\addinsurance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|c:\\users\\jsanda\\projects\\test projects\\insuranceapp-asp-.net-mvc\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|solutionrelative:models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|c:\\users\\jsanda\\projects\\test projects\\insuranceapp-asp-.net-mvc\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E7EDA2-BEB5-4A8E-9392-F7B291AC258C}|InsuranceApp_ASP .NET MVC.csproj|solutionrelative:controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T10:48:36.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddInsurance.cshtml",
+              "DocumentMoniker": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Views\\Clients\\AddInsurance.cshtml",
+              "RelativeDocumentMoniker": "Views\\Clients\\AddInsurance.cshtml",
+              "ToolTip": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Views\\Clients\\AddInsurance.cshtml",
+              "RelativeToolTip": "Views\\Clients\\AddInsurance.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T10:47:01.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientsController.cs",
+              "DocumentMoniker": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Controllers\\ClientsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientsController.cs",
+              "ToolTip": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Controllers\\ClientsController.cs",
+              "RelativeToolTip": "Controllers\\ClientsController.cs",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T10:46:05.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "Models\\Client.cs",
+              "ToolTip": "C:\\Users\\jsanda\\Projects\\Test Projects\\InsuranceApp-ASP-.NET-MVC\\Models\\Client.cs",
+              "RelativeToolTip": "Models\\Client.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAADwv0UAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T10:39:07.078Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
