@@ -9,6 +9,6 @@ namespace InsuranceApp_Accounts.Data
             : base(options)
         {
         }
-        public DbSet<InsuranceApp_Accounts.Models.Client>? Clients { get; set; }
+        public DbSet<Models.Client>? Clients { get; set; }
     }
 }

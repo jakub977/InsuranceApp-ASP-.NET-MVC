@@ -42,11 +42,11 @@ namespace InsuranceApp_Accounts.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime? StartDate { get; set; }
+        public string? StartDate { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime? EndDate { get; set; }
+        public string? EndDate { get; set; }
 
         public string? Event { get; set; }
 
